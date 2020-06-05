@@ -15,6 +15,9 @@ let promises = pokemonS.map(pokemon => fetch(`https://pokeapi.co/api/v2/pokemon/
     let result = name + ': ' + types.join(', ')
     resolve(result);
     })
+})
+.catch((error) => {
+  return 'Pokemon not found';
 }))
 
 Promise.all(promises).then((values) => {
