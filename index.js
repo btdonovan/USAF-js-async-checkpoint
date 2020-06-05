@@ -17,7 +17,12 @@ let promises = pokemonS.map(pokemon => fetch(`https://pokeapi.co/api/v2/pokemon/
     })
 })
 .catch((error) => {
-  return 'Pokemon not found';
+  error = error.toString()
+  for (var i = 0; i < pokemonS.length; i++) {
+    if (error.indexOf(pokemonS[i]) > -1) {
+      return `${pokemonS[i][0].toUpperCase() + pokemonS[i].slice(1)} was not found`
+    } 
+  }
 }))
 
 Promise.all(promises).then((values) => {

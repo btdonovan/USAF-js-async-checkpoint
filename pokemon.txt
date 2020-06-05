@@ -1,2 +1,6 @@
 charizard
 pikachu
+bulbasaur
+invisiblehorse
+mewtwo
+nosuchpokemon
