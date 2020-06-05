@@ -6,10 +6,17 @@ const fs = require('fs');
 // there are many) according to the pokeapi.co API.
 
 const pokemonS = fs.readFileSync('pokemon.txt').toString().split('\n')
-pokemonS.forEach(pokemon => fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+let promises = pokemonS.map(pokemon => fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
 .then(response => response.json())
 .then(function (json) {
   let name = json.name[0].toUpperCase() + json.name.slice(1);
   let types = json.types.map(type => type['type']['name'])
-  console.log(name + ': ' +types.join(', '))
+  return new Promise(function(resolve) {
+    let result = name + ': ' + types.join(', ')
+    resolve(result);
+    })
 }))
+
+Promise.all(promises).then((values) => {
+  values.forEach(value => console.log(value))
+})
