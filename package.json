@@ -1,0 +1,22 @@
+{
+  "name": "usaf-js-async-checkpoint",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/btdonovan/USAF-js-async-checkpoint.git"
+  },
+  "author": "Benjamin Donovan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/btdonovan/USAF-js-async-checkpoint/issues"
+  },
+  "homepage": "https://github.com/btdonovan/USAF-js-async-checkpoint#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
+}
