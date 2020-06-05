@@ -20,7 +20,7 @@ let promises = POKEMON.map(pokemon => fetch(`https://pokeapi.co/api/v2/pokemon/$
   error = error.toString()
   for (var i = 0; i < POKEMON.length; i++) {
     if (error.indexOf(POKEMON[i]) > -1) {
-      return `${POKEMON[i][0].toUpperCase() + POKEMON[i].slice(1)} was not found`
+      return `${POKEMON[i]} was not found`
     } 
   }
 }))
