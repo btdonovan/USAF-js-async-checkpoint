@@ -5,8 +5,8 @@ const fs = require('fs');
 // (each name seperated by a new line) and logs each Pokemon's types (for some 
 // there are many) according to the pokeapi.co API.
 
-const pokemonS = fs.readFileSync('pokemon.txt').toString().split('\n')
-let promises = pokemonS.map(pokemon => fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+const POKEMON = fs.readFileSync('pokemon.txt').toString().split('\n')
+let promises = POKEMON.map(pokemon => fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
 .then(response => response.json())
 .then(function (json) {
   let name = json.name[0].toUpperCase() + json.name.slice(1);
@@ -18,9 +18,9 @@ let promises = pokemonS.map(pokemon => fetch(`https://pokeapi.co/api/v2/pokemon/
 })
 .catch((error) => {
   error = error.toString()
-  for (var i = 0; i < pokemonS.length; i++) {
-    if (error.indexOf(pokemonS[i]) > -1) {
-      return `${pokemonS[i][0].toUpperCase() + pokemonS[i].slice(1)} was not found`
+  for (var i = 0; i < POKEMON.length; i++) {
+    if (error.indexOf(POKEMON[i]) > -1) {
+      return `${POKEMON[i][0].toUpperCase() + POKEMON[i].slice(1)} was not found`
     } 
   }
 }))
